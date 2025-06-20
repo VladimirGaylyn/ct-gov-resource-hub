@@ -1,10 +1,20 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Building, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SearchBar } from "@/components/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      // Navigate to resources page and pass the search query
+      navigate(`/resources?search=${encodeURIComponent(query)}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-16">
@@ -17,6 +27,13 @@ const Index = () => {
             license renewals, and public comment submission processes.
           </p>
           
+          <div className="mb-8">
+            <SearchBar 
+              onSearch={handleSearch}
+              placeholder="Search for cities, departments, or permit types..."
+            />
+          </div>
+
           <Link to="/resources">
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
               <FileText className="mr-2 h-5 w-5" />

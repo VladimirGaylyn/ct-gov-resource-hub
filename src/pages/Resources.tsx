@@ -1,10 +1,22 @@
-
 import { ExternalLink, Phone, Mail, Calendar, FileText, Building } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { SearchBar } from "@/components/SearchBar";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Resources = () => {
+  const [searchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const urlSearchQuery = searchParams.get('search');
+    if (urlSearchQuery) {
+      setSearchQuery(urlSearchQuery);
+    }
+  }, [searchParams]);
+
   const stateResources = [
     {
       title: "Connecticut Office of Secretary of State",
@@ -132,16 +144,43 @@ const Resources = () => {
     }
   ];
 
+  const filteredStateResources = useMemo(() => {
+    if (!searchQuery) return stateResources;
+    return stateResources.filter(resource =>
+      resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      resource.contact.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
+  const filteredCityResources = useMemo(() => {
+    if (!searchQuery) return cityResources;
+    return cityResources.filter(city =>
+      city.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      city.contacts.some(contact =>
+        contact.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (contact.description && contact.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (contact.email && contact.email.toLowerCase().includes(searchQuery.toLowerCase()))
+      ) ||
+      city.meetings.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Resources for Permits/Licenses and Public Comments
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             Comprehensive guide to Connecticut state and local resources for permits, licenses, and public comment submission
           </p>
+          
+          <SearchBar 
+            onSearch={setSearchQuery}
+            placeholder="Search by city, department, or resource type..."
+          />
         </div>
 
         {/* State-level Resources */}
@@ -149,10 +188,15 @@ const Resources = () => {
           <div className="flex items-center gap-3 mb-6">
             <Building className="h-8 w-8 text-blue-600" />
             <h2 className="text-3xl font-bold text-gray-900">State-Level Resources</h2>
+            {searchQuery && (
+              <span className="text-sm text-gray-500">
+                ({filteredStateResources.length} results)
+              </span>
+            )}
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {stateResources.map((resource, index) => (
+            {filteredStateResources.map((resource, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -182,19 +226,21 @@ const Resources = () => {
             ))}
           </div>
 
-          <Card className="bg-blue-50 border-blue-200">
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Calendar className="h-5 w-5 text-blue-600" />
-                <h3 className="font-semibold text-blue-900">Connecticut State Agency Public Meeting Calendar</h3>
-              </div>
-              <p className="text-blue-700">Access the complete schedule of state agency public meetings</p>
-              <Button variant="outline" size="sm" className="mt-3">
-                <ExternalLink className="h-4 w-4 mr-2" />
-                View Calendar
-              </Button>
-            </CardContent>
-          </Card>
+          {!searchQuery && (
+            <Card className="bg-blue-50 border-blue-200">
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <Calendar className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-semibold text-blue-900">Connecticut State Agency Public Meeting Calendar</h3>
+                </div>
+                <p className="text-blue-700">Access the complete schedule of state agency public meetings</p>
+                <Button variant="outline" size="sm" className="mt-3">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  View Calendar
+                </Button>
+              </CardContent>
+            </Card>
+          )}
         </section>
 
         <Separator className="my-8" />
@@ -204,10 +250,15 @@ const Resources = () => {
           <div className="flex items-center gap-3 mb-6">
             <Building className="h-8 w-8 text-green-600" />
             <h2 className="text-3xl font-bold text-gray-900">City and Town-Level Resources</h2>
+            {searchQuery && (
+              <span className="text-sm text-gray-500">
+                ({filteredCityResources.length} results)
+              </span>
+            )}
           </div>
           
           <div className="grid lg:grid-cols-2 gap-6">
-            {cityResources.map((city, index) => (
+            {filteredCityResources.map((city, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle className="text-2xl text-green-700">{city.city}</CardTitle>
@@ -267,6 +318,12 @@ const Resources = () => {
               </Card>
             ))}
           </div>
+
+          {searchQuery && filteredStateResources.length === 0 && filteredCityResources.length === 0 && (
+            <div className="text-center py-8">
+              <p className="text-gray-500">No resources found matching "{searchQuery}". Try a different search term.</p>
+            </div>
+          )}
         </section>
 
         {/* Footer */}
