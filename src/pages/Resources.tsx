@@ -1,3 +1,4 @@
+
 import { ExternalLink, Phone, Mail, Calendar, FileText, Building } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,9 +21,9 @@ const Resources = () => {
   const stateResources = [
     {
       title: "Connecticut Office of Secretary of State",
-      description: "Portal for finding and submitting public comments with all relevant state agencies",
-      contact: "Detailed contact information and comment submission instructions available",
-      link: "#",
+      description: "This portal can be used for finding and submitting public comments and includes all relevant agencies within the Connecticut state government, with detailed contact information and instructions on comment submission.",
+      contact: "Portal for finding and submitting public comments with all relevant state agencies",
+      link: "https://portal.ct.gov/SOTS",
       icon: <Building className="h-5 w-5" />
     },
     {
@@ -30,21 +31,21 @@ const Resources = () => {
       description: "State agency for siting applications and public comment submission",
       contact: "Connecticut Siting Council, 10 Franklin Square, New Britain, CT 06051",
       email: "Siting.Council@ct.gov",
-      link: "#",
+      link: "https://portal.ct.gov/CSC",
       icon: <Building className="h-5 w-5" />
     },
     {
       title: "CT Department of Energy & Environmental Protection",
-      description: "Permits and Licenses information, application guidance, and different license types",
+      description: "Access information on Permits and Licenses, including information on the different types of licenses, guidance on navigating the process of applying, and more.",
       contact: "Information on permits, licenses, and application processes",
-      link: "#",
+      link: "https://portal.ct.gov/DEEP/Permits-and-Licenses/Permits-and-Licenses",
       icon: <FileText className="h-5 w-5" />
     },
     {
       title: "Connecticut eLicense Website",
-      description: "Renew, verify, or apply for licenses and file complaints online",
+      description: "Use this site to renew, verify, or apply for a license, and to file a complaint.",
       contact: "Online portal for all licensing needs",
-      link: "#",
+      link: "https://www.elicense.ct.gov/",
       icon: <FileText className="h-5 w-5" />
     }
   ];
@@ -59,7 +60,8 @@ const Resources = () => {
           phone: "+1(860) 828-7008"
         }
       ],
-      meetings: "Town Council Meeting Portal available for schedules and information"
+      meetings: "Meeting Portal for the Town Council schedule of meetings and more information",
+      meetingLink: "https://www.berlinct.org/town-council"
     },
     {
       city: "Bridgeport",
@@ -70,27 +72,32 @@ const Resources = () => {
           phone: "(203) 576-7221"
         }
       ],
-      meetings: "City Council Meeting Minutes, Agendas and Notices available"
+      meetings: "City Council Meeting Minutes, Agendas and Notices",
+      meetingLink: "https://www.bridgeportct.gov/content/city-council"
     },
     {
       city: "East Haven",
       contacts: [
         {
           department: "PermitLink Portal",
-          description: "Apply for permits related to Zoning, Wetlands, Building Services, and more"
+          description: "Through this link, one can apply for permits related to Zoning and Wetlands, Building Services, and more",
+          link: "https://easthavenct.permitlink.com/"
         }
       ],
-      meetings: "Council Meeting Agendas available online"
+      meetings: "Council Meeting Agendas",
+      meetingLink: "https://www.easthaven-ct.gov/town-council"
     },
     {
       city: "Groton",
       contacts: [
         {
           department: "Citizen Self Service Portal",
-          description: "Apply for permits, request inspections, search public records"
+          description: "Through this Portal, one can apply for permits, request inspections, search public records, and more",
+          link: "https://groton-ct.gov/citizen-self-service/"
         }
       ],
-      meetings: "2024 Meeting Schedules available"
+      meetings: "2024 Meeting Schedules",
+      meetingLink: "https://groton-ct.gov/meetings/"
     },
     {
       city: "Hartford",
@@ -108,7 +115,8 @@ const Resources = () => {
           phone: "(860) 757-9738"
         }
       ],
-      meetings: "2024 City Council Public Comment Meeting schedules available"
+      meetings: "Schedule of 2024 City Council Public Comment Meetings",
+      meetingLink: "https://www.hartford.gov/city-council"
     },
     {
       city: "New Haven",
@@ -119,7 +127,9 @@ const Resources = () => {
           phone: "(203) 946-8045"
         }
       ],
-      meetings: "Complete list of licenses/permits and City Calendar Meeting List available"
+      meetings: "Complete list of licenses/permits and City Calendar Meeting List",
+      meetingLink: "https://www.newhavenct.gov/gov/depts/lic_insp/",
+      permitLink: "https://www.newhavenct.gov/gov/depts/lic_insp/licenses_permits/"
     },
     {
       city: "Stamford",
@@ -140,7 +150,9 @@ const Resources = () => {
           phone: "(203) 977-4719"
         }
       ],
-      meetings: "Boards and Commissions Meeting Calendar and Minutes/Agendas available"
+      meetings: "Boards and Commissions Meeting Calendar and All Boards & Commissions Minutes/Agendas",
+      meetingLink: "https://www.stamfordct.gov/boards-commissions",
+      agendaLink: "https://www.stamfordct.gov/boards-commissions/agendas-minutes"
     }
   ];
 
@@ -187,7 +199,7 @@ const Resources = () => {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Building className="h-8 w-8 text-blue-600" />
-            <h2 className="text-3xl font-bold text-gray-900">State-Level Resources</h2>
+            <h2 className="text-3xl font-bold text-gray-900">State-Level</h2>
             {searchQuery && (
               <span className="text-sm text-gray-500">
                 ({filteredStateResources.length} results)
@@ -217,10 +229,12 @@ const Resources = () => {
                       </div>
                     )}
                   </div>
-                  <Button variant="outline" size="sm" className="mt-4">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Visit Website
-                  </Button>
+                  <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" size="sm" className="mt-4">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Visit Website
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}
@@ -234,10 +248,12 @@ const Resources = () => {
                   <h3 className="font-semibold text-blue-900">Connecticut State Agency Public Meeting Calendar</h3>
                 </div>
                 <p className="text-blue-700">Access the complete schedule of state agency public meetings</p>
-                <Button variant="outline" size="sm" className="mt-3">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  View Calendar
-                </Button>
+                <a href="https://portal.ct.gov/OPM/IGPP-MAIN/Publications/Meeting-Calendar" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="sm" className="mt-3">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Calendar
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           )}
@@ -249,7 +265,7 @@ const Resources = () => {
         <section>
           <div className="flex items-center gap-3 mb-6">
             <Building className="h-8 w-8 text-green-600" />
-            <h2 className="text-3xl font-bold text-gray-900">City and Town-Level Resources</h2>
+            <h2 className="text-3xl font-bold text-gray-900">City- and Town-level</h2>
             {searchQuery && (
               <span className="text-sm text-gray-500">
                 ({filteredCityResources.length} results)
@@ -296,6 +312,16 @@ const Resources = () => {
                               )}
                             </div>
                           )}
+                          {contact.link && (
+                            <div className="mt-2">
+                              <a href={contact.link} target="_blank" rel="noopener noreferrer">
+                                <Button variant="outline" size="sm">
+                                  <ExternalLink className="h-4 w-4 mr-2" />
+                                  Access Portal
+                                </Button>
+                              </a>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -306,11 +332,33 @@ const Resources = () => {
                           <Calendar className="h-4 w-4 text-gray-600" />
                           <span className="font-medium text-gray-900">Meeting Information</span>
                         </div>
-                        <p className="text-sm text-gray-600">{city.meetings}</p>
-                        <Button variant="outline" size="sm" className="mt-2">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          View Meetings
-                        </Button>
+                        <p className="text-sm text-gray-600 mb-2">{city.meetings}</p>
+                        <div className="flex gap-2 flex-wrap">
+                          {city.meetingLink && (
+                            <a href={city.meetingLink} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm">
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                View Meetings
+                              </Button>
+                            </a>
+                          )}
+                          {city.permitLink && (
+                            <a href={city.permitLink} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm">
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                View Permits
+                              </Button>
+                            </a>
+                          )}
+                          {city.agendaLink && (
+                            <a href={city.agendaLink} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm">
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                View Agendas
+                              </Button>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     )}
                   </div>
