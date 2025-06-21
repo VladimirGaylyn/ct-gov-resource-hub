@@ -20,31 +20,32 @@ const Resources = () => {
 
   const stateResources = [
     {
-      title: "Connecticut Office of Secretary of State",
-      description: "This portal can be used for finding and submitting public comments and includes all relevant agencies within the Connecticut state government, with detailed contact information and instructions on comment submission.",
-      contact: "Portal for finding and submitting public comments with all relevant state agencies",
-      link: "https://portal.ct.gov/SOTS",
+      title: "eRegulations System – Office of the Secretary of the State",
+      description: "Search regulations that are open for public comment and file comments online.",
+      contact: "Online portal (no direct phone/email)",
+      link: "https://eregulations.ct.gov/eRegsPortal/",
       icon: <Building className="h-5 w-5" />
     },
     {
       title: "Connecticut Siting Council",
-      description: "State agency for siting applications and public comment submission",
-      contact: "Connecticut Siting Council, 10 Franklin Square, New Britain, CT 06051",
-      email: "Siting.Council@ct.gov",
-      link: "https://portal.ct.gov/CSC",
+      description: "Track siting applications, meeting agendas, and submit written comments.",
+      contact: "10 Franklin Sq., New Britain",
+      email: "siting.council@ct.gov",
+      phone: "860-827-2935",
+      link: "https://portal.ct.gov/csc",
       icon: <Building className="h-5 w-5" />
     },
     {
-      title: "CT Department of Energy & Environmental Protection",
-      description: "Access information on Permits and Licenses, including information on the different types of licenses, guidance on navigating the process of applying, and more.",
-      contact: "Information on permits, licenses, and application processes",
+      title: "DEEP Permits & Licenses",
+      description: "Environmental permits, forms, and step-by-step guidance.",
+      contact: "DEEP permitting assistance hotline on page",
       link: "https://portal.ct.gov/DEEP/Permits-and-Licenses/Permits-and-Licenses",
       icon: <FileText className="h-5 w-5" />
     },
     {
-      title: "Connecticut eLicense Website",
-      description: "Use this site to renew, verify, or apply for a license, and to file a complaint.",
-      contact: "Online portal for all licensing needs",
+      title: "CT eLicense Portal",
+      description: "Apply for, renew, or verify over 800 state-issued licenses/permits.",
+      contact: "Self-service portal (24/7)",
       link: "https://www.elicense.ct.gov/",
       icon: <FileText className="h-5 w-5" />
     }
@@ -55,104 +56,112 @@ const Resources = () => {
       city: "Berlin",
       contacts: [
         {
-          department: "Planning and Zoning Commission",
+          department: "Planning & Zoning Commission",
           email: "mgiusti@berlinct.gov",
-          phone: "+1(860) 828-7008"
+          phone: "860-828-7060",
+          name: "Maureen Giusti",
+          description: "Zoning applications, questions on land use"
         }
       ],
-      meetings: "Meeting Portal for the Town Council schedule of meetings and more information",
-      meetingLink: "https://www.berlinct.org/town-council"
+      meetings: "Council agendas, minutes, livestream links",
+      meetingLink: "https://www.berlinct.gov/meetings/"
     },
     {
       city: "Bridgeport",
       contacts: [
         {
-          department: "Office of Planning and Economic Development",
-          email: "Thomas.Gill@bridgeportct.gov",
-          phone: "(203) 576-7221"
+          department: "Office of Planning & Economic Development",
+          email: "thomas.gill@bridgeportct.gov",
+          phone: "203-576-7221",
+          name: "Tom Gill",
+          description: "Development reviews, zoning amendments, economic-dev. programs"
         }
       ],
-      meetings: "City Council Meeting Minutes, Agendas and Notices",
-      meetingLink: "https://www.bridgeportct.gov/content/city-council"
+      meetings: "Track ordinances, upcoming hearings, and submit testimony",
+      meetingLink: "https://www.bridgeportct.gov/government/boards-and-commissions/city-council/city-council/city-council-meeting-minutes-agendas-and-notices"
     },
     {
       city: "East Haven",
       contacts: [
         {
           department: "PermitLink Portal",
-          description: "Through this link, one can apply for permits related to Zoning and Wetlands, Building Services, and more",
-          link: "https://easthavenct.permitlink.com/"
+          description: "Apply online for building, zoning, wetlands, and more",
+          contact: "Town Hall: 250 Main St. 203-468-3205",
+          link: "https://permitlinkusa-online.com/csp/easthavenct/DocumentLink.PublicWelcome.cls"
         }
       ],
-      meetings: "Council Meeting Agendas",
-      meetingLink: "https://www.easthaven-ct.gov/town-council"
+      meetings: "View agenda packets and meeting schedules",
+      meetingLink: "https://www.easthaven-ct.gov/node/2621/agenda"
     },
     {
       city: "Groton",
       contacts: [
         {
-          department: "Citizen Self Service Portal",
-          description: "Through this Portal, one can apply for permits, request inspections, search public records, and more",
-          link: "https://groton-ct.gov/citizen-self-service/"
+          department: "Citizen Self-Service Portal",
+          description: "Submit/track permit applications, inspection requests, fee payments",
+          email: "schoquette@groton-ct.gov",
+          link: "https://groton-ct.gov/departments/plandev/permits.php"
         }
       ],
-      meetings: "2024 Meeting Schedules",
-      meetingLink: "https://groton-ct.gov/meetings/"
+      meetings: "Regular meeting calendar for all Groton boards/commissions",
+      meetingLink: "https://www.groton-ct.gov/government/schedules.php"
     },
     {
       city: "Hartford",
       contacts: [
         {
-          department: "Department of Development Services",
-          email: "randal.davis@hartford.gov",
-          phone: "(860) 757-9200",
-          altPhone: "(860) 757-9040",
-          role: "Deputy Director"
+          department: "Dept. of Development Services",
+          description: "Permits, zoning, planning, housing & code-enforcement services",
+          contact: "260 Constitution Plaza",
+          phone: "860-757-9200",
+          link: "https://www.hartfordct.gov/Government/Departments/DDS"
         },
         {
-          department: "Public Comment Meetings",
+          department: "City Council – Public Comment Meetings",
+          description: "Schedule & sign-up details for speaking at Council",
           email: "Sybelle.Moise@hartford.gov",
-          phone: "(860) 757-9738"
+          phone: "860-757-9738",
+          name: "Clerk contact"
         }
       ],
-      meetings: "Schedule of 2024 City Council Public Comment Meetings",
-      meetingLink: "https://www.hartford.gov/city-council"
+      meetings: "Schedule & sign-up details for speaking at Council",
+      meetingLink: "https://www.hartfordct.gov/Government/Town-and-City-Clerk/Achieved-City-Council-Documents/Council-Meetings/2024-Public-Comments"
     },
     {
       city: "New Haven",
       contacts: [
         {
-          department: "Office of Building Inspection & Enforcement",
-          email: "RDillon@newhavenct.gov",
-          phone: "(203) 946-8045"
+          department: "Building Inspection & Enforcement",
+          description: "Electronic permitting, inspections, code questions",
+          name: "Robert Dillon",
+          phone: "203-946-8045",
+          link: "https://www.newhavenct.gov/government/departments-divisions/office-of-building-inspection-enforcement"
         }
       ],
-      meetings: "Complete list of licenses/permits and City Calendar Meeting List",
-      meetingLink: "https://www.newhavenct.gov/gov/depts/lic_insp/",
-      permitLink: "https://www.newhavenct.gov/gov/depts/lic_insp/licenses_permits/"
+      meetings: "Comprehensive list of board/commission meetings with links",
+      meetingLink: "https://www.newhavenct.gov/city-services/advanced-components/list-detail-pages/calendar-meeting-list",
+      permitLink: "https://www.newhavenct.gov/city-services/licenses-permits"
     },
     {
       city: "Stamford",
       contacts: [
         {
-          department: "Community Development",
-          email: "communitydevelopment@stamfordct.gov",
-          phone: "(203) 977-5253"
+          department: "Community Development Office",
+          description: "Federal/State grant programs (CDBG, etc.) and neighborhood planning",
+          contact: "888 Washington Blvd., 10th Fl.",
+          phone: "203-977-4053",
+          link: "https://www.stamfordct.gov/government/view-all-city-departments"
         },
         {
-          department: "Planning Board",
-          email: "StamfordLandUse@StamfordCT.gov",
-          phone: "(203) 977-4076"
-        },
-        {
-          department: "Zoning Board",
+          department: "Land Use Bureau / Planning & Zoning",
+          description: "Planning Board, Zoning Board, environmental reviews; one-stop email",
           email: "StamfordLandUse@stamfordct.gov",
-          phone: "(203) 977-4719"
+          phone: "203-977-4711",
+          link: "https://www.stamfordct.gov/government/operations/land-use-bureau-planning-zoning-housing-epb"
         }
       ],
-      meetings: "Boards and Commissions Meeting Calendar and All Boards & Commissions Minutes/Agendas",
-      meetingLink: "https://www.stamfordct.gov/boards-commissions",
-      agendaLink: "https://www.stamfordct.gov/boards-commissions/agendas-minutes"
+      meetings: "Master calendar plus links to all minutes/agendas",
+      meetingLink: "https://www.stamfordct.gov/government/boards-commissions/boards-commissions-meeting-calendar"
     }
   ];
 
@@ -172,7 +181,8 @@ const Resources = () => {
       city.contacts.some(contact =>
         contact.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (contact.description && contact.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (contact.email && contact.email.toLowerCase().includes(searchQuery.toLowerCase()))
+        (contact.email && contact.email.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (contact.name && contact.name.toLowerCase().includes(searchQuery.toLowerCase()))
       ) ||
       city.meetings.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -228,6 +238,14 @@ const Resources = () => {
                         </a>
                       </div>
                     )}
+                    {resource.phone && (
+                      <div className="flex items-center gap-2">
+                        <Phone className="h-4 w-4 text-blue-600" />
+                        <a href={`tel:${resource.phone}`} className="text-blue-600 hover:underline">
+                          {resource.phone}
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <a href={resource.link} target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" size="sm" className="mt-4">
@@ -245,10 +263,10 @@ const Resources = () => {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="h-5 w-5 text-blue-600" />
-                  <h3 className="font-semibold text-blue-900">Connecticut State Agency Public Meeting Calendar</h3>
+                  <h3 className="font-semibold text-blue-900">State Public-Meeting Calendar</h3>
                 </div>
-                <p className="text-blue-700">Access the complete schedule of state agency public meetings</p>
-                <a href="https://portal.ct.gov/OPM/IGPP-MAIN/Publications/Meeting-Calendar" target="_blank" rel="noopener noreferrer">
+                <p className="text-blue-700">Master calendar for all state-agency public meetings & hearings</p>
+                <a href="https://egov.ct.gov/pmc/" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="sm" className="mt-3">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     View Calendar
@@ -284,11 +302,14 @@ const Resources = () => {
                     {city.contacts.map((contact, contactIndex) => (
                       <div key={contactIndex} className="border-l-4 border-green-200 pl-4">
                         <h4 className="font-semibold text-gray-900 mb-2">{contact.department}</h4>
-                        {contact.role && (
-                          <p className="text-sm text-gray-600 mb-1">Role: {contact.role}</p>
+                        {contact.name && (
+                          <p className="text-sm text-gray-600 mb-1">Contact: {contact.name}</p>
                         )}
                         {contact.description && (
                           <p className="text-sm text-gray-600 mb-2">{contact.description}</p>
+                        )}
+                        {contact.contact && (
+                          <p className="text-sm text-gray-600 mb-2">{contact.contact}</p>
                         )}
                         <div className="space-y-1">
                           {contact.email && (
@@ -305,11 +326,6 @@ const Resources = () => {
                               <a href={`tel:${contact.phone}`} className="text-green-600 hover:underline text-sm">
                                 {contact.phone}
                               </a>
-                              {contact.altPhone && (
-                                <span className="text-gray-500 text-sm">
-                                  (Alt: {contact.altPhone})
-                                </span>
-                              )}
                             </div>
                           )}
                           {contact.link && (
@@ -350,14 +366,6 @@ const Resources = () => {
                               </Button>
                             </a>
                           )}
-                          {city.agendaLink && (
-                            <a href={city.agendaLink} target="_blank" rel="noopener noreferrer">
-                              <Button variant="outline" size="sm">
-                                <ExternalLink className="h-4 w-4 mr-2" />
-                                View Agendas
-                              </Button>
-                            </a>
-                          )}
                         </div>
                       </div>
                     )}
@@ -383,7 +391,7 @@ const Resources = () => {
                 license renewals, and public comment submissions across Connecticut state and local government agencies.
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                Last updated: June 2025 | Please verify contact information before submitting applications
+                Last updated: December 2024 | Please verify contact information before submitting applications
               </p>
             </CardContent>
           </Card>
